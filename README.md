@@ -1,23 +1,22 @@
 <div align="center">
   <H1>
-    Название исследуемой задачи
+    Compression for Federated Random Reshuffling
   </H1>
-  Тип научной работы<br><br>
-  Имя Отчество Фамилия, Имя Отчество Фамилия
+  <br><br>
+  Тихон Глебович Антышев
 </div><br>
 <div align="center">
-  Научный руководитель: степень Фамилия Имя Отчество <br>
-  Научный консультант(при наличии): степень Фамилия Имя Отчество
+  Научный консультант: Григорий Константинович Малиновский
 </div>
 
 ## Аннотация
-Purus sit amet luctus venenatis lectus magna fringilla. Condimentum id venenatis a condimentum vitae sapien. Auctor neque vitae tempus quam pellentesque nec nam aliquam. Eget egestas purus viverra accumsan in. Nam aliquam sem et tortor. Donec et odio pellentesque diam volutpat commodo. Odio pellentesque diam volutpat commodo sed egestas. Sit amet dictum sit amet justo. Pellentesque sit amet porttitor eget. Imperdiet sed euismod nisi porta lorem mollis aliquam ut. Quis varius quam quisque id diam vel quam elementum. Ornare lectus sit amet est placerat in. Vulputate dignissim suspendisse in est ante. Elit sed vulputate mi sit amet mauris. Egestas sed tempus urna et pharetra pharetra. Viverra tellus in hac habitasse platea dictumst vestibulum rhoncus.
+We analyze first order methods solving Empirical Risk Minimization problem of the form min f(x) in $R^d$. Here x is a parameter vector of some Machine Learning model, f_i(x) is a loss function on i-th training point (a_i,b_i). We focus on distributed setting of this problem. We are going to apply compression techniques to reduce number of communicated bits to overcome communication bottleneck. Also we want to combine it with server-side updates. We desire to generalize and get improvement in theory and practice.
 
-## Публикации по теме исследования
-1. 
+%## Публикации по теме исследования
+%1. 
 
-## Выступления на конференциях по теме исследования
-1. 
+%## Выступления на конференциях по теме исследования
+%1. 
 
-## Программные модули разработанные в рамках исследования
-1. 
+%## Программные модули разработанные в рамках исследования
+%1. 
