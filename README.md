@@ -11,12 +11,3 @@
 
 ## Аннотация
 We analyze first order methods solving Empirical Risk Minimization problem of the form min f(x) in $R^d$. Here x is a parameter vector of some Machine Learning model, f_i(x) is a loss function on i-th training point (a_i,b_i). We focus on distributed setting of this problem. We are going to apply compression techniques to reduce number of communicated bits to overcome communication bottleneck. Also we want to combine it with server-side updates. We desire to generalize and get improvement in theory and practice.
-
-%## Публикации по теме исследования
-%1. 
-
-%## Выступления на конференциях по теме исследования
-%1. 
-
-%## Программные модули разработанные в рамках исследования
-%1. 
