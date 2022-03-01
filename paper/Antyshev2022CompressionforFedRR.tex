@@ -13,6 +13,7 @@
 \usepackage{graphicx}
 \usepackage{natbib}
 \usepackage{doi}
+\newcommand*{\defeq}{\stackrel{\mathsmaller{\mathsf{def}}}{=}}
 
 
 
@@ -62,11 +63,24 @@ pdfkeywords={First keyword, Second keyword, More},
 
 \end{abstract}
 
-\keywords{Machine Learning \and Federated Learning \and Random Reshuffling \and Compressed Iterates}
+
+\keywords{Machine Learning \and Federated Learning \and Random Reshuffling }
 
 \section{Introduction}
 %\lipsum[2]
 %\lipsum[3]
+Modern machine learning models heavily rely on Empirical Risk Minimization for supervised training training. The  success of this approach itself can be attributed to a plentiful amount of data available.
+
+\subsection{Problem Statement}
+We consider the standard finite-sum optimization formulation of
+federated learning problem:
+\[
+    x_* = \arg\min_{x \in \mathbb{R}^d}\big[f(x) \defeq \frac{1}{M}\sum_{m=1}^M f_m(x) \big]
+\]
+\[f_m(x) \defeq \frac{1}{n}\sum_{i = 1}^n f_m^i(x)\]
+Where M is number of clients in current task, $f_m:\mathbb{R}^d \rightarrow \mathbb{R}$ is the loss of the model $x$ on the training data subset owned by client or device $m$, which has the finite-sum structure, comprised of $f_m^i: \mathbb{R}^d \rightarrow \mathbb{R}$ - loss of model $x$ on training point $i \in \overline{1, n}$. We shall also assume that $ \forall \; m,\, i:\: f_m^i$ is differentiable and consider strongly convex, convex and non-convex modes.
+
+\subsection{}
 
 \section{Headings: first level}
 \label{sec:headings}
