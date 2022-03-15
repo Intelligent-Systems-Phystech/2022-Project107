@@ -82,12 +82,12 @@ Where M is number of clients in current task, $f_m:\mathbb{R}^d \rightarrow \mat
 
 \subsection{}
 
-\section{Headings: first level}
+\section{Contributions}
 \label{sec:headings}
 
 %\lipsum[4] See Section \ref{sec:headings}.
 
-\subsection{Headings: second level}
+%\subsection{Headings: second level}
 %\lipsum[5]
 %\begin{equation}
 %	\xi _{ij}(t)=P(x_{t}=i,x_{t+1}=j|y,v,w;\theta)= {\frac {\alpha _{i}(t)a^{w_t}_{ij}\beta _{j}(t+1)b^{v_{t+1}}_{j}(y_{t+1})}{\sum _{i=1}^{N} \sum _{j=1}^{N} \alpha _{i}(t)a^{w_t}_{ij}\beta _{j}(t+1)b^{v_{t+1}}_{j}(y_{t+1})}}
@@ -98,7 +98,36 @@ Where M is number of clients in current task, $f_m:\mathbb{R}^d \rightarrow \mat
 
 %\paragraph{Paragraph}
 %\lipsum[7]
+\section{Preliminaries}
 
+
+\section{Theory}
+
+\section{Experiments}
+The goal of the experiment is to demonstrate improvements of implementing Compressed Iterates with Server Step-Sizes method. We
+run our experiment on $l2$-regularized logistic regression
+with the ‘a1a’ dataset from LibSVM.
+As a baseline solution we will be demonstrating the results of Proximal and Federated RR. Afterwards, we shall compare performance for proposed algorithm and versions that use either only Server Step-sizes or only Compressed Iterates.
+\begin{figure}[h]
+\begin{minipage}[h]{0.49\linewidth}
+\center{\includegraphics[scale=0.35]{figures/fedVSsgd_a1a.png} \\ Local SGD and Federated RR}
+\end{minipage}
+\hfill
+\begin{minipage}[h]{0.49\linewidth}
+\center{\includegraphics[scale=0.5]{figures/RestNest.png} \\ Performance of Nesterov method}
+\end{minipage}
+\end{figure}
+
+%
+%\begin{figure}[h]
+%\begin{minipage}[h]{0.49\linewidth}
+%\center{\includegraphics[scale=0.35]{figures/fedVSsgd_a1a.png} \\ Data %distribution before SMOTE}
+%\end{minipage}
+%\hfill
+%\begin{minipage}[h]{0.49\linewidth}
+%\center{\includegraphics[scale=0.35]{synth_data_after_smote.png} \\ %%Data distribution after SMOTE}
+%\end{minipage}
+%\end{figure}
 
 
 \section{Examples of citations, figures, tables, references}
@@ -160,5 +189,7 @@ Where M is number of clients in current task, $f_m:\mathbb{R}^d \rightarrow \mat
 
 \bibliographystyle{unsrtnat}
 \bibliography{references}
+
+\end{document}
 
 \end{document}
