@@ -2,7 +2,7 @@
 \usepackage{arxiv}
 
 \usepackage[utf8]{inputenc}
-\usepackage[english, russian]{babel}
+\usepackage[english]{babel}
 \usepackage[T1]{fontenc}
 \usepackage{url}
 \usepackage{booktabs}
@@ -14,6 +14,22 @@
 \usepackage{natbib}
 \usepackage{doi}
 \newcommand*{\defeq}{\stackrel{\mathsmaller{\mathsf{def}}}{=}}
+
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames,svgnames,table,rgb]{xcolor}
+
+\hypersetup{
+	unicode=true,
+	pdftitle={A template for the arxiv style},
+	pdfsubject={q-bio.NC, q-bio.QM},
+	pdfauthor={David S.~Hippocampus, Elias D.~Striatum},
+	pdfkeywords={First keyword, Second keyword, More},
+	colorlinks=true,
+	linkcolor=black,        % внутренние ссылки
+	citecolor=blue,         % на библиографию
+	filecolor=magenta,      % на файлы
+	urlcolor=blue           % на URL
+}
 
 
 
@@ -69,18 +85,32 @@ pdfkeywords={First keyword, Second keyword, More},
 \section{Introduction}
 %\lipsum[2]
 %\lipsum[3]
-Modern machine learning models heavily rely on Empirical Risk Minimization for supervised training training. The  success of this approach itself can be attributed to a plentiful amount of data available.
+Modern machine learning models heavily rely on Empirical Risk Minimization for supervised training training. The  success of this approach itself can be attributed to a plentiful amount of data available and exponential increase in computing power. The latter remains a problem in machine learning tasks, as some models require ridiculous resources for training. One of the proposed solutions to this is parallel computing - distribution of the tasks between clients. It is known as Federated Learning.
+
+\subsection{Federated Learning}
+Federated Learning (FL) is a method of training models, which avoids centralized data-storing and instead relies on clients for greater energy efficiency and privacy. The clients do not share their private data between each other or the server, however each of them partakes in model training by local optimization over personal data.
 
 \subsection{Problem Statement}
 We consider the standard finite-sum optimization formulation of
 federated learning problem:
-\[
+\begin{equation}
     x_* = \arg\min_{x \in \mathbb{R}^d}\big[f(x) \defeq \frac{1}{M}\sum_{m=1}^M f_m(x) \big]
-\]
-\[f_m(x) \defeq \frac{1}{n}\sum_{i = 1}^n f_m^i(x)\]
+    \end{equation}
+    \[f_m(x) \defeq \frac{1}{n}\sum_{i = 1}^n f_m^i(x)\]
 Where M is number of clients in current task, $f_m:\mathbb{R}^d \rightarrow \mathbb{R}$ is the loss of the model $x$ on the training data subset owned by client or device $m$, which has the finite-sum structure, comprised of $f_m^i: \mathbb{R}^d \rightarrow \mathbb{R}$ - loss of model $x$ on training point $i \in \overline{1, n}$. We shall also assume that $ \forall \; m,\, i:\: f_m^i$ is differentiable and consider strongly convex, convex and non-convex modes.
 
-\subsection{}
+\subsection{Improving FL}
+
+\textbf{Compressed Communication.} As the model size increases, so does the time required to transfer iteration of parameters. The end result is performance worsening drastically. In order to overcome this communication bottleneck, we will be using gradient compression scheme and compressed iterates.
+\par
+\textbf{Random Reshuffling.} It has been experimentally proven that using a random permutation of data set provides better results, which is distinct from standard SGD, which picks data points in an unbiased way.
+\par
+\textbf{Local training.} This can be seen as minibatch SGD performed on the latest version of model, provided by the server.
+\par
+\textbf{Partial Participation.} FL process consists of communication rounds, in each server chooses a subset of clients to participate in optimization. This is done in order to take limited server capability or limited client availability.
+\par
+\textbf{Server Stepsizes.} After clients finish local optimization they send their results to the server. The most simple action that can be performed is taking average as new global model state. However, empirical evidence suggests that it is more beneficial to treat received model states as gradient information and performing one step of GD over them.
+
 
 \section{Contributions}
 \label{sec:headings}
@@ -102,6 +132,11 @@ Where M is number of clients in current task, $f_m:\mathbb{R}^d \rightarrow \mat
 
 
 \section{Theory}
+\begin{figure}[h]
+\centering
+{\includegraphics[scale=0.3]{figures/ServerStep.png} \\ Server Step-Sizes}
+\end{figure}
+
 
 \section{Experiments}
 The goal of the experiment is to demonstrate improvements of implementing Compressed Iterates with Server Step-Sizes method. We
@@ -185,11 +220,12 @@ As a baseline solution we will be demonstrating the results of Proximal and Fede
 	%\item consectetur adipiscing elit.
 	%\item Aliquam dignissim blandit est, in dictum tortor gravida eget. In ac %rutrum magna.
 %\end{itemize}
-
+\nocite{*}
 
 \bibliographystyle{unsrtnat}
-\bibliography{references}
+\bibliography{references.bib}
 
 \end{document}
 
-\end{document}
+
+
